@@ -23,7 +23,7 @@
 #import "KMAVerification.h"
 
 static float const kKMAVerificationTimeout = 20.0f;
-static NSString * const kKMAVerificationUrl = @"https://et.kissmetrics.io/m/trk";
+NSMutableString *kKMAVerificationUrl = @"https://et.kissmetrics.io/m/trk";
 
 
 @implementation KMAVerification {

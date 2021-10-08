@@ -26,6 +26,7 @@
 
 @property (nonatomic, weak) id <KMAVerificationDelegate> delegate;
 
+@property (nonatomic) NSMutableString* kKMAVerificationUrl;
 
 - (void)verifyTrackingForProductKey:(NSString*)key
                         installUuid:(NSString*)installUuid

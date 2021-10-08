@@ -114,8 +114,6 @@ static NSString *kKMASystemVersionPropertyKey = @"System Version";
     }
 }
 
-
-
 #pragma mark Singleton Methods
 
 + (KISSmetricsAPI *) sharedAPIWithKey:(NSString *)apiKey
@@ -127,6 +125,17 @@ static NSString *kKMASystemVersionPropertyKey = @"System Version";
             [sharedAPI initializeAPIWithKey:apiKey];
         }
     }
+    return sharedAPI;
+}
+
++ (KISSmetricsAPI *) setup:(NSString *)apiKey withTrackingURL:(NSString *)trackingURL
+{
+    @synchronized(self)
+    {
+        [self sharedAPIWithKey:apiKey];
+        _verification.kKMAVerificationUrl = [[NSMutableString alloc] initWithString:trackingURL];
+    }
+
     return sharedAPI;
 }
 

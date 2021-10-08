@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, KMARecordCondition) {
 
 
 //-------------------
-// + sharedAPIWithKey
+// + Setup the kissmetrics instance with custom DICE url
 //
 // Return Value:
 // The Singleton KISSmetricsAPI instance.
@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, KMARecordCondition) {
 // If your project does include KISSmetricsAPI_options.m, the API key defined in your options will be used and calls to
 // this method will be ignored.
 //---
-+ (KISSmetricsAPI *) sharedAPIWithKey:(NSString *)apiKey;
++ (KISSmetricsAPI *) setup:(NSString *)apiKey withTrackingURL:(NSString *)trackingURL;
 
 
 
