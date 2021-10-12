@@ -134,6 +134,7 @@ static NSString *kKMASystemVersionPropertyKey = @"System Version";
     {
         [self sharedAPIWithKey:apiKey];
         _verification.kKMAVerificationUrl = [[NSMutableString alloc] initWithString:trackingURL];
+        [[KMAArchiver sharedArchiver] archiveBaseUrl:trackingURL];
     }
 
     return sharedAPI;
