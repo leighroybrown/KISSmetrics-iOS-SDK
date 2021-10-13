@@ -31,6 +31,7 @@ BOOL kKMARecordApplicationLifecycle;
 BOOL kKMASetHardwareProperties;
 BOOL kKMASetAppProperties;
 BOOL kKMARecordViewControllerLifecycles;
+BOOL kKMALogVerbose;
 
 
 // Import KISSmetricsAPI_options.h only AFTER default options definitions to allow for overwriting of values.
@@ -132,6 +133,7 @@ static NSString *kKMASystemVersionPropertyKey = @"System Version";
 {
     @synchronized(self)
     {
+        kKMALogVerbose = FALSE;
         [self sharedAPIWithKey:apiKey];
         _verification.kKMAVerificationUrl = [[NSMutableString alloc] initWithString:trackingURL];
         [[KMAArchiver sharedArchiver] archiveBaseUrl:trackingURL];

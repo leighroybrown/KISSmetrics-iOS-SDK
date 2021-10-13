@@ -18,16 +18,12 @@
 // limitations under the License.
 
 
-#ifndef KMALogVerbose
-#  define KMALogVerbose 1
-#endif
-
 /* Our own internal logging */
 #ifndef KMALog
 #
 #  //When debug, log warnings, else not.
 #  ifdef DEBUG
-#    if KMALogVerbose
+#    if kKMALogVerbose
 #      define KMALog(...) NSLog(__VA_ARGS__)
 #    else
 #      define KMALog(...)
