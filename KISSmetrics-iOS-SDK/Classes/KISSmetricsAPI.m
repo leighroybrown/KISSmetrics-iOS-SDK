@@ -133,10 +133,12 @@ static NSString *kKMASystemVersionPropertyKey = @"System Version";
 {
     @synchronized(self)
     {
-        kKMALogVerbose = FALSE;
-        [self sharedAPIWithKey:apiKey];
-        _verification.kKMAVerificationUrl = [[NSMutableString alloc] initWithString:trackingURL];
+        KMALog(@"Setting up kissmetrics")
+        _verification = [KMAVerification new];
+        _verification.kKMAVerificationUrl = [[NSMutableString alloc] initWithString: [trackingURL stringByAppendingString:@"/c"]];
         [[KMAArchiver sharedArchiver] archiveBaseUrl:trackingURL];
+        sharedAPI = [[super allocWithZone:NULL] init];
+        [sharedAPI initializeAPIWithKey:apiKey];
     }
 
     return sharedAPI;

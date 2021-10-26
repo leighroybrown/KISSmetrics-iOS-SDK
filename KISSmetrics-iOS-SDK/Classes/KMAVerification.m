@@ -23,7 +23,7 @@
 #import "KMAVerification.h"
 
 static float const kKMAVerificationTimeout = 20.0f;
-NSMutableString *kKMAVerificationUrl = @"https://et.kissmetrics.io/m/trk";
+NSMutableString *kKMAVerificationUrl;
 
 
 @implementation KMAVerification {
@@ -77,7 +77,7 @@ NSMutableString *kKMAVerificationUrl = @"https://et.kissmetrics.io/m/trk";
     _buffer = [NSMutableData data];
     
     NSString *urlString = [NSString stringWithFormat:@"%@?product_key=%@&install_uuid=%@",
-                           kKMAVerificationUrl, productKey, installUuid];
+                           _kKMAVerificationUrl, productKey, installUuid];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]
                                              cachePolicy:NSURLRequestReloadIgnoringCacheData
